@@ -1,6 +1,6 @@
 import re
 import csv
-import task_object
+from task_object import Task
 
 tasks = []
 
@@ -15,6 +15,8 @@ def main():
             task_description = input(f"Task for {day}:")
             if task_description.lower() == "done":
                 break
+            elif task_description == "":
+                raise ValueError
             add_task(tasks, Task(task_description, day))
     
     print("\nthese are your tasks")
